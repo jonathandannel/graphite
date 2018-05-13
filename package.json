@@ -1,0 +1,23 @@
+{
+  "name": "stretch-project-1",
+  "version": "0.0.0",
+  "description": "lighthouse labs stretch project",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-lighthouselabs": "github:lighthouse-labs/eslint-config-lighthouselabs"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jonathandannel/graphite.git"
+  },
+  "author": "jonathan dannel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathandannel/graphite/issues"
+  },
+  "homepage": "https://github.com/jonathandannel/graphite#readme"
+}
