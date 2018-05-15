@@ -1,10 +1,6 @@
-var sampleData = [2, 4, 5, 7, 8];
+var sampleData = [2, 8, 4, 5, 7, 3];
 
 var mainContainer = document.querySelector(".graphite-container");
-
-var graphiteChart = document.createElement("div");
-graphiteChart.className = "graphite-chart";
-mainContainer.append(graphiteChart);
 
 var addColumns = function(data) {
   for (i = 0; i < data.length; i++) {
@@ -17,10 +13,10 @@ var addColumns = function(data) {
     $(column).css({
       "display": "inline-block",
       "height": columnValue,
-      "background-color": "purple"
+      "background-color": "blue",
+      "vertical-align": "bottom"
     });
-    $(graphiteChart).append(column);
-
+    $(mainContainer).append(column);
   }
 };
 
