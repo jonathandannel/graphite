@@ -24,16 +24,17 @@ var addColumns = function(data) {
       "text-align": "center",
       "font-family": "arial",
       "text-padding": "5px",
-      "font-size": "12px"
+      "font-size": "14px"
     });
     $(mainContainer).append(column);
   }
 };
 
-var words = ['one', 'two', 'three', 'four'];
+var words = ['black', 'latino', 'native', 'asian', 'indian', 'white', 'other', 'unknown'];
 
 var addChartBottom = function (labels) {
-  var chartBottom = document.createElement("div");
+  var chartBottom = document.createElement("div"
+);
   chartBottom.className = "graphite-chart-bottom";
   $(mainContainer).append(chartBottom);
 
