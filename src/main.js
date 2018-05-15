@@ -1,19 +1,25 @@
-var sampleData = [12, 8, 4, 15, 7, 3, 6, 5];
+var userDataParams = {
+  'black': 12,
+  'latino': 8,
+  'native': 4,
+  'asian': 8,
+  'white': 15,
+  'indian': 6
+};
 
 var mainContainer = document.querySelector(".graphite-chart");
 $(mainContainer).css("padding-left", "50px");
 
-/*var columnColors = ['red', 'green', 'orange', 'yellow', 'blue', 'green'];*/
-
-var addColumns = function(data) {
-  for (i = 0; i < data.length; i++) {
+var addColumns = function(dataObj) {
+  var specs = Object.values(dataObj);
+  for (i = 0; i < specs.length; i++) {
     var column = document.createElement("div");
     column.className = "graphite-column";
     column.Id = 'column-' + (i + 1);
-    column.innerHTML = '<br>' + data[i];
+    column.innerHTML = '<br>' + specs[i];
 
     var columnValue = '';
-    columnValue += (data[i] * 20) + 'px';
+    columnValue += (specs[i] * 20) + 'px';
     $(column).css({
       "display": "inline-block",
       "height": columnValue,
@@ -30,16 +36,15 @@ var addColumns = function(data) {
   }
 };
 
-var words = ['black', 'latino', 'native', 'asian', 'indian', 'white', 'other', 'unknown'];
+var addChartBottom = function (dataObj) {
+  var specs = Object.keys(dataObj);
 
-var addChartBottom = function (labels) {
-  var chartBottom = document.createElement("div"
-);
+  var chartBottom = document.createElement("div");
   chartBottom.className = "graphite-chart-bottom";
   $(mainContainer).append(chartBottom);
 
-  for (i = 0; i < labels.length; i++) {
-    var labelName = labels[i];
+  for (i = 0; i < specs.length; i++) {
+    var labelName = specs[i];
     var bottomLabel = document.createElement("div");
     bottomLabel.className = "graphite-chart-bottom-label";
     bottomLabel.innerHTML = labelName;
@@ -55,5 +60,5 @@ var addChartBottom = function (labels) {
   }
 };
 
-addColumns(sampleData);
-addChartBottom(words);
+addColumns(userDataParams);
+addChartBottom(userDataParams);
