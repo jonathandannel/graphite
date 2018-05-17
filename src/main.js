@@ -3,14 +3,16 @@ var userData = {
   'latino': 8,
   'native': 4,
   'asian': 8,
-  'white': 18,
+  'white': 16,
   'indian': 6,
   'other': 5
 };
 
 var drawBarChart = function(data, options, element) {
   var mainContainer = document.getElementById(element);
-  $(mainContainer).css({
+  var chartContainer = document.createElement("div");
+  chartContainer.class = "graphite-container";
+  $(chartContainer).css({
     "padding-left": "50px",
     "height": "100%",
     "border-width": "1px",
@@ -18,8 +20,10 @@ var drawBarChart = function(data, options, element) {
     "border-color": "black",
     "overflow": "auto",
     "position": "relative",
-    "margin-top": "20px"
+    "margin-top": "20px",
+    "padding-top": "20px"
   });
+  $(mainContainer).append(chartContainer);
 
   var addColumns = function(dataObj) {
     var specs = Object.values(dataObj);
@@ -43,7 +47,7 @@ var drawBarChart = function(data, options, element) {
         "text-padding": "5px",
         "font-size": "14px"
       });
-      $(mainContainer).append(column);
+      $(chartContainer).append(column);
     }
   };
 
@@ -52,7 +56,7 @@ var drawBarChart = function(data, options, element) {
 
     var chartBottom = document.createElement("div");
     chartBottom.className = "graphite-chart-bottom";
-    $(mainContainer).append(chartBottom);
+    $(chartContainer).append(chartBottom);
 
     for (i = 0; i < specs.length; i++) {
       var labelName = specs[i];
