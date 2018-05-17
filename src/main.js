@@ -4,12 +4,52 @@ var userData = {
   'native': 4,
   'asian': 8,
   'white': 15,
-  'indian': 6
+  'indian': 6,
+  'other': 4
 };
 
 var drawBarChart = function(data, options, element) {
-  var mainContainer = document.getElementById("graphite-chart-1");
-  $(mainContainer).css("padding-left", "50px");
+  var mainContainer = document.getElementById(element);
+  $(mainContainer).css({
+    "padding-left": "50px",
+    "border-width": "1px",
+    "border-style": "solid",
+    "border-color": "black",
+    "margin-left": "30px",
+    "overflow": "auto",
+    "position": "relative"
+  });
+
+  var specs = Object.values(data);
+  var highestNumber = 0;
+  for (i = 0; i < specs.length; i++) {
+    if (specs[i] > highestNumber) {
+      highestNumber = specs[i];
+    }
+  }
+  var separatorIntervals = Math.round(highestNumber / 5);
+  var separatorContainer = document.createElement("div");
+  separatorContainer.className = "separator-container";
+  $(separatorContainer).css({
+    "position": "absolute",
+    "width": "100%",
+    "height": "100%",
+    "margin-left": "-20%"
+  });
+  $(mainContainer).append(separatorContainer);
+
+  for (i = 0; i <= highestNumber; i += separatorIntervals) {
+    var separator = document.createElement("div");
+    var separatorHeight = separatorIntervals + 'px';
+    $(separator).css({
+      "border-width": "1px",
+      "border-style": "solid",
+      "border-color": "black",
+      "width": "100%",
+      "height": "20%"
+    });
+    $(separatorContainer).append(separator);
+  }
 
   var addColumns = function(dataObj) {
     var specs = Object.values(dataObj);
@@ -31,7 +71,9 @@ var drawBarChart = function(data, options, element) {
         "text-align": "center",
         "font-family": "arial",
         "text-padding": "5px",
-        "font-size": "14px"
+        "font-size": "14px",
+        "margin-top": "20px",
+        "margin-bottom": "5px"
       });
       $(mainContainer).append(column);
     }
@@ -55,7 +97,8 @@ var drawBarChart = function(data, options, element) {
         "margin-right": "30px",
         "text-align": "center",
         "width": "90px",
-        "font-family": "arial"
+        "font-family": "arial",
+        "margin-bottom": "10px"
       });
       $(chartBottom).append(bottomLabel);
     }
