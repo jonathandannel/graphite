@@ -8,7 +8,7 @@ var userData = {
 };
 
 var drawBarChart = function(data, options, element) {
-  var mainContainer = document.getElementById("graphite-chart-1");
+  var mainContainer = document.getElementById(element);
   $(mainContainer).css("padding-left", "50px");
 
   var addColumns = function(dataObj) {
