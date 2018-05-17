@@ -10,6 +10,7 @@ var userData = {
 
 var drawBarChart = function(data, options, element) {
   var mainContainer = document.getElementById(element);
+<<<<<<< HEAD
   $(mainContainer).css({
     "padding-left": "50px",
     "border-width": "1px",
@@ -50,6 +51,9 @@ var drawBarChart = function(data, options, element) {
     });
     $(separatorContainer).append(separator);
   }
+=======
+  $(mainContainer).css("padding-left", "50px");
+>>>>>>> c5c3ff486ef01fd3da70eeecbb4f9450d0fe29a4
 
   var addColumns = function(dataObj) {
     var specs = Object.values(dataObj);
