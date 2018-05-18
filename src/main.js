@@ -10,20 +10,47 @@ var userData = {
 
 var drawBarChart = function(data, options, element) {
   var mainContainer = document.getElementById(element);
-  var chartContainer = document.createElement("div");
-  chartContainer.class = "graphite-container";
-  $(chartContainer).css({
-    "padding-left": "50px",
-    "height": "100%",
-    "border-width": "1px",
-    "border-style": "solid",
-    "border-color": "black",
-    "overflow": "auto",
-    "position": "relative",
-    "margin-top": "20px",
-    "padding-top": "20px"
+  $(mainContainer).css({
+    "margin-left": "10px"
   });
-  $(mainContainer).append(chartContainer);
+
+  var addSeparators = function(dataObj) {
+
+    var specs = Object.values(dataObj);
+    var highestNumber = 0;
+    for (i = 0; i < specs.length; i++) {
+      if (specs[i] > highestNumber) {
+        highestNumber = specs[i];
+      }
+    }
+
+    var interval = (highestNumber * 20) / 5;
+    console.log(interval);
+
+    var separator1 = document.createElement("hr");
+    $(separator1).css({
+      "position": "absolute",
+      "width": "100%",
+      "margin-top": "20px"
+    });
+    $(mainContainer).append(separator1);
+    var separator2 = document.createElement("hr");
+    $(separator1).css({
+      "position": "absolute",
+      "width": "100%",
+      "margin-top": "80px"
+    });
+    $(mainContainer).append(separator2);
+    var separator3 = document.createElement("hr");
+    $(separator3).css({
+      "position": "absolute",
+      "width": "100%",
+      "margin-top": "150px"
+    });
+    $(mainContainer).append(separator3);
+
+
+  };
 
   var addColumns = function(dataObj) {
     var specs = Object.values(dataObj);
@@ -37,17 +64,19 @@ var drawBarChart = function(data, options, element) {
       columnValue += (specs[i] * 20) + 'px';
       $(column).css({
         "display": "inline-block",
+        "position": "relative",
         "height": columnValue,
-        "background-color": "#4d88ff",
-        "vertical-align": "bottom",
         "margin-right": "30px",
         "width": "90px",
+        "background-color": "#4d88ff",
+        "vertical-align": "bottom",
         "text-align": "center",
         "font-family": "arial",
         "text-padding": "5px",
-        "font-size": "14px"
+        "font-size": "14px",
+        "z-index": "2"
       });
-      $(chartContainer).append(column);
+      $(mainContainer).append(column);
     }
   };
 
@@ -56,7 +85,7 @@ var drawBarChart = function(data, options, element) {
 
     var chartBottom = document.createElement("div");
     chartBottom.className = "graphite-chart-bottom";
-    $(chartContainer).append(chartBottom);
+    $(mainContainer).append(chartBottom);
 
     for (i = 0; i < specs.length; i++) {
       var labelName = specs[i];
@@ -70,15 +99,15 @@ var drawBarChart = function(data, options, element) {
         "text-align": "center",
         "width": "90px",
         "font-family": "arial",
-        "margin-bottom": "10px"
+        "margin-bottom": "10px",
+        "overflow": "auto"
       });
       $(chartBottom).append(bottomLabel);
     }
   };
-
+  addSeparators(data);
   addColumns(data);
   addChartBottom(data);
-
 };
 
 drawBarChart(userData, 0, "graphite-chart-1");
