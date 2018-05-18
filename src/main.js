@@ -27,27 +27,15 @@ var drawBarChart = function(data, options, element) {
     var interval = Math.round(highestNumber * 20) / 5;
     console.log(interval);
 
-    var separator1 = document.createElement("hr");
-    $(separator1).css({
-      "position": "absolute",
-      "width": "100%",
-      "margin-top": "20px"
-    });
-    $(mainContainer).append(separator1);
-    var separator2 = document.createElement("hr");
-    $(separator1).css({
-      "position": "absolute",
-      "width": "100%",
-      "margin-top": "80px"
-    });
-    $(mainContainer).append(separator2);
-    var separator3 = document.createElement("hr");
-    $(separator3).css({
-      "position": "absolute",
-      "width": "100%",
-      "margin-top": "150px"
-    });
-    $(mainContainer).append(separator3);
+    for (i = 1; i < 6; i++) {
+      var separator = document.createElement("hr");
+      $(separator).css({
+        "position": "absolute",
+        "width": "100%",
+        "margin-top": (interval * i) + "px"
+      });
+      $(mainContainer).append(separator);
+    }
 
 
   };
