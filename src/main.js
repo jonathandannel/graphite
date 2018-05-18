@@ -24,7 +24,7 @@ var drawBarChart = function(data, options, element) {
       }
     }
 
-    var interval = (highestNumber * 20) / 5;
+    var interval = Math.round(highestNumber * 20) / 5;
     console.log(interval);
 
     var separator1 = document.createElement("hr");
