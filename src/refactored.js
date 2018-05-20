@@ -9,7 +9,6 @@ var userData = {
 };
 
 var drawBarChart = function(data, options, element) {
-  //store all our chart stuff in a container
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
     "position": "relative",
@@ -19,10 +18,8 @@ var drawBarChart = function(data, options, element) {
     "padding-top": "30px"
   });
 
-  //directly add chart container to specified element
   $(element).append(mainContainer);
 
-  //add another container with all the columns styled with flexbox
   var addColumns = function(dataObject) {
     var values = Object.values(dataObject);
 
@@ -55,7 +52,6 @@ var drawBarChart = function(data, options, element) {
 
   };
 
-  //add horizontal lines to tick off values
   var addSeparators = function(dataObject) {
     var values = Object.values(dataObject);
 
@@ -86,7 +82,6 @@ var drawBarChart = function(data, options, element) {
     }
   };
 
-  //this is where we label each column
   var addChartBottom = function (dataObj) {
     var specs = Object.keys(dataObj);
 
