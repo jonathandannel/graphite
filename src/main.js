@@ -1,15 +1,16 @@
 var userData = {
-  'Black': 28,
-  'Latino': 61,
-  'Native': 44,
-  'Asian': 39,
-  'White': 22,
-  'Indian': 48,
-  'Other': 15
+  'A': 28,
+  'B': 61,
+  'C': 44,
+  'D': 39,
+  'E': 22,
+  'F': 48,
+  'G': 15,
+  'H': 30
 };
 
 var drawBarChart = function(data, options, element) {
-  var containerHeight = options[0];
+  var containerHeight = 400;
   var containerWidth = options[1];
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
@@ -18,21 +19,18 @@ var drawBarChart = function(data, options, element) {
     "flex-direction": "column-reverse",
     "margin-top": "20px",
     "padding-top": "30px",
-    "height": "400px"
+    "height": containerHeight + 'px'
   });
-
   $(element).append(mainContainer);
 
-  var addColumns = function(dataObject, height, width) {
+  var addColumns = function(dataObject, height) {
     var values = Object.values(dataObject);
-
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
         maxHeight = values[i];
       }
     }
-
     var columnContainer = document.createElement("div");
     $(columnContainer).css({
       "display": "flex",
@@ -43,7 +41,6 @@ var drawBarChart = function(data, options, element) {
       "margin-left": "50px",
       "padding-bottom": "9px"
     });
-
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
       column.innerHTML = '<p>' + values[i];
@@ -52,32 +49,29 @@ var drawBarChart = function(data, options, element) {
         "width": "90px",
         "background-color": "#68b24a",
         "text-align": "center",
-        "height": values[i] * (400 / maxHeight) + "px",
+        "height": values[i] * (height / maxHeight) + "px",
         "z-index": "2"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
     }
   };
-
-  var addSeparators = function(dataObject) {
+  var addSeparators = function(dataObject, height) {
     var values = Object.values(dataObject);
-
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
         maxHeight = values[i];
       }
     }
-
     for (i = 0; i <= maxHeight; i += Math.round(maxHeight / 4)) {
       var separatorContainer = document.createElement("div");
       separatorContainer.innerHTML = i;
       $(separatorContainer).css({
         "position": "absolute",
-        "width": "100%",
-        "margin-bottom": i * (400 / maxHeight) + "px",
-        "bottom": "0"
+        "margin-bottom": i * (height / maxHeight) + "px",
+        "bottom": "0",
+        "width": "100%"
       });
       var separator = document.createElement("hr");
       $(separator).css({
@@ -92,16 +86,17 @@ var drawBarChart = function(data, options, element) {
 
   var addChartBottom = function (dataObj) {
     var specs = Object.keys(dataObj);
-
     var chartBottom = document.createElement("div");
     chartBottom.className = "graphite-chart-bottom";
     $(chartBottom).css({
       "bottom": "0",
+      "display": "flex",
+      "flex-direction": "row",
+      "flex-align": "end",
       "position": "relative",
-      "margin-left": "48px"
+      "margin-left": "47px"
     });
     $(element).append(chartBottom);
-
     for (i = 0; i < specs.length; i++) {
       var labelName = specs[i];
       var bottomLabel = document.createElement("div");
@@ -118,8 +113,8 @@ var drawBarChart = function(data, options, element) {
       $(chartBottom).append(bottomLabel);
     }
   };
-  addColumns(data);
-  addSeparators(data);
+  addColumns(data, containerHeight);
+  addSeparators(data, containerHeight);
   addChartBottom(data);
 };
 
