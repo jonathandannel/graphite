@@ -45,7 +45,7 @@ var drawBarChart = function(data, options, element) {
         "width": "90px",
         "background-color": "#4d88ff",
         "text-align": "center",
-        "text-padding": "10px",
+        "text-padding": "20px",
         "height": values[i] * 20 + "px",
         "z-index": "1"
       });
@@ -95,7 +95,7 @@ var drawBarChart = function(data, options, element) {
     $(chartBottom).css({
       "bottom": "0",
       "position": "relative",
-      "margin-left": "50px"
+      "margin-left": "48px"
     });
     $(element).append(chartBottom);
 
