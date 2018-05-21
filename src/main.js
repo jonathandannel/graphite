@@ -18,8 +18,7 @@ var drawBarChart = function(data, options, element) {
     "flex-direction": "column-reverse",
     "margin-top": "20px",
     "padding-top": "30px",
-    "height": "400px",
-    "width": "900px"
+    "height": "400px"
   });
 
   $(element).append(mainContainer);
@@ -42,7 +41,7 @@ var drawBarChart = function(data, options, element) {
       "position": "relative",
       "padding-top": "8px",
       "margin-left": "50px",
-      "padding-bottom": "10px"
+      "padding-bottom": "9px"
     });
 
     for (i = 0; i < values.length; i++) {
@@ -53,9 +52,8 @@ var drawBarChart = function(data, options, element) {
         "width": "90px",
         "background-color": "#68b24a",
         "text-align": "center",
-        "text-padding": "20px",
         "height": values[i] * (400 / maxHeight) + "px",
-        "z-index": "1"
+        "z-index": "2"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
@@ -82,6 +80,11 @@ var drawBarChart = function(data, options, element) {
         "bottom": "0"
       });
       var separator = document.createElement("hr");
+      $(separator).css({
+        "border-style": "solid",
+        "border-bottom": "1px",
+        "border-color": "black"
+      });
       $(separatorContainer).append(separator);
       $(mainContainer).append(separatorContainer);
     }
