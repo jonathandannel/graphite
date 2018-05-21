@@ -1,30 +1,38 @@
 var userData = {
-  'Black': 8,
-  'Latino': 5,
-  'Native': 4,
-  'Asian': 10,
-  'White': 12,
-  'Indian': 7,
-  'Other': 5
+  'Black': 28,
+  'Latino': 61,
+  'Native': 44,
+  'Asian': 39,
+  'White': 22,
+  'Indian': 48,
+  'Other': 15
 };
 
 var drawBarChart = function(data, options, element) {
-  //store all our chart stuff in a container
+  var containerHeight = options[0];
+  var containerWidth = options[1];
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
     "margin-top": "20px",
-    "padding-top": "30px"
+    "padding-top": "30px",
+    "height": "400px",
+    "width": "900px"
   });
 
-  //directly add chart container to specified element
   $(element).append(mainContainer);
 
-  //add another container with all the columns styled with flexbox
-  var addColumns = function(dataObject) {
+  var addColumns = function(dataObject, height, width) {
     var values = Object.values(dataObject);
+
+    var maxHeight = 0;
+    for (i = 0; i < values.length; i++) {
+      if (values[i] > maxHeight) {
+        maxHeight = values[i];
+      }
+    }
 
     var columnContainer = document.createElement("div");
     $(columnContainer).css({
@@ -39,23 +47,21 @@ var drawBarChart = function(data, options, element) {
 
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
-      column.innerHTML = values[i];
+      column.innerHTML = '<p>' + values[i];
       $(column).css({
         "margin-right": "30px",
         "width": "90px",
-        "background-color": "#4d88ff",
+        "background-color": "#68b24a",
         "text-align": "center",
         "text-padding": "20px",
-        "height": values[i] * 20 + "px",
+        "height": values[i] * (400 / maxHeight) + "px",
         "z-index": "1"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
     }
-
   };
 
-  //add horizontal lines to tick off values
   var addSeparators = function(dataObject) {
     var values = Object.values(dataObject);
 
@@ -66,18 +72,13 @@ var drawBarChart = function(data, options, element) {
       }
     }
 
-    var chartValues = Math.round(maxHeight / 4);
-    for (i = maxHeight; i <= 0; i -= chartValues) {
-      console.log(i);
-    }
-
     for (i = 0; i <= maxHeight; i += Math.round(maxHeight / 4)) {
       var separatorContainer = document.createElement("div");
       separatorContainer.innerHTML = i;
       $(separatorContainer).css({
         "position": "absolute",
         "width": "100%",
-        "margin-bottom": i * 20 + "px",
+        "margin-bottom": i * (400 / maxHeight) + "px",
         "bottom": "0"
       });
       var separator = document.createElement("hr");
@@ -86,7 +87,6 @@ var drawBarChart = function(data, options, element) {
     }
   };
 
-  //this is where we label each column
   var addChartBottom = function (dataObj) {
     var specs = Object.keys(dataObj);
 
@@ -106,13 +106,11 @@ var drawBarChart = function(data, options, element) {
       bottomLabel.innerHTML = labelName;
       $(bottomLabel).css({
         "display": "inline-block",
-        "padding-top": "10px",
         "margin-right": "30px",
         "text-align": "center",
         "width": "90px",
-        "font-family": "arial",
         "margin-bottom": "10px",
-        "overflow": "auto"
+        "top": "0"
       });
       $(chartBottom).append(bottomLabel);
     }
