@@ -1,12 +1,24 @@
 var userData = {
-  'Io': 1.032,
-  'Europa': 1.45,
-  'Ganymede': 1.044,
-  'Callisto': 2.01
+  'Io': 4,
+  'Europa': 7.45,
+  'Ganymede': 6,
+  'Callisto': 12,
+  'Enceladus': 8.1,
+  'Titan': 4.91,
+  'Dione': 3.750
 };
 
+var userOptions = {
+  'width': '',
+  'height': '',
+  'barColor': 'surprise',
+  'title': ''
+};
+
+
 var drawBarChart = function(data, options, element) {
-  var containerHeight = 300;
+  console.log(options.barColor);
+  var containerHeight = 400;
   var containerWidth = 900;
   var barColor = '';
   var mainContainer = document.createElement("div");
@@ -14,16 +26,16 @@ var drawBarChart = function(data, options, element) {
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
-    "padding-top": "10px",
     "margin-top": "75px",
     "margin-left": "10px",
     "height": containerHeight + 'px',
     "width": containerWidth + 'px',
     "font-family": "arial",
+    "font-size": "14px",
     "color": "#4c4a4c"
   });
 
-  var title = "Densities of Jupiter's moons (g/cm²) ";
+  var title = "Saturnian/Jovian moon densities (g/cm²) ";
   var graphTitle = document.createElement("div");
   graphTitle.innerHTML = "<h1>" + title + "</h1>";
   $(graphTitle).css({
@@ -66,7 +78,7 @@ var drawBarChart = function(data, options, element) {
         "width": width / values.length + "px",
         "background": "linear-gradient(rgb(189, 168, 193), rgb(206, 192, 209))",
         "text-align": "center",
-        "height": values[i] * (height / maxHeight) + 1 + "px",
+        "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "2"
       });
       var columnLabel = document.createElement("div");
@@ -102,13 +114,15 @@ var drawBarChart = function(data, options, element) {
       var separator = document.createElement("hr");
       separator.className = "separator-" + i;
       $(separator).css({
-        "height": "1px"
+        "border-bottom": "2px"
       });
       $(separatorContainer).append(separator);
       $(mainContainer).append(separatorContainer);
     }
     $(".separator-0").css({
-      "border-bottom": "2px"
+      "border-style": "solid",
+      "border-top": "1px",
+      "border-color": "#4c4a4c"
     });
   };
 
@@ -116,4 +130,4 @@ var drawBarChart = function(data, options, element) {
   addSeparators(data, containerHeight);
 };
 
-drawBarChart(userData, 0, example);
+drawBarChart(userData, userOptions, example);
