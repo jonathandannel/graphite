@@ -1,36 +1,40 @@
 var userData = {
-  'A': 28,
-  'B': 61,
-  'C': 44,
-  'D': 39,
-  'E': 22,
-  'F': 48,
-  'G': 15,
-  'H': 30
+  'White': 38,
+  'Black': 41,
+  'Hispanic': 61,
+  'Asian': 39,
+  'Indian': 52,
+  'Middle Eastern': 48,
+  'Native': 15,
+  'Islander': 30
 };
 
 var drawBarChart = function(data, options, element) {
   var containerHeight = 400;
-  var containerWidth = options[1];
+  var containerWidth = 900;
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
-    "margin-top": "20px",
-    "padding-top": "30px",
-    "height": containerHeight + 'px'
+    "margin-top": "80px",
+    "margin-left": "10px",
+    "height": containerHeight + 'px',
+    "width": containerWidth + 'px'
   });
+
   $(element).append(mainContainer);
 
-  var addColumns = function(dataObject, height) {
+  var addColumns = function(dataObject, height, width) {
     var values = Object.values(dataObject);
+
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
         maxHeight = values[i];
       }
     }
+
     var columnContainer = document.createElement("div");
     $(columnContainer).css({
       "display": "flex",
@@ -38,32 +42,42 @@ var drawBarChart = function(data, options, element) {
       "align-items": "flex-end",
       "position": "relative",
       "padding-top": "8px",
-      "margin-left": "50px",
-      "padding-bottom": "9px"
+      "padding-bottom": "9px",
+      "margin-left": "44px"
     });
+
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
       column.innerHTML = '<p>' + values[i];
       $(column).css({
-        "margin-right": "30px",
-        "width": "90px",
+        "margin-right": (width / values.length) / 6 + "px",
+        "width": width / values.length + "px",
         "background-color": "#68b24a",
         "text-align": "center",
         "height": values[i] * (height / maxHeight) + "px",
         "z-index": "2"
       });
+      var columnLabel = document.createElement("div");
+      columnLabel.innerHTML = Object.keys(dataObject)[i];
+      $(columnLabel).css({
+        "margin-top": values[i] * (height / maxHeight) - 10 + "px"
+      });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
+      $(column).append(columnLabel);
     }
   };
+
   var addSeparators = function(dataObject, height) {
     var values = Object.values(dataObject);
+
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
         maxHeight = values[i];
       }
     }
+
     for (i = 0; i <= maxHeight; i += Math.round(maxHeight / 4)) {
       var separatorContainer = document.createElement("div");
       separatorContainer.innerHTML = i;
@@ -83,39 +97,9 @@ var drawBarChart = function(data, options, element) {
       $(mainContainer).append(separatorContainer);
     }
   };
-
-  var addChartBottom = function (dataObj) {
-    var specs = Object.keys(dataObj);
-    var chartBottom = document.createElement("div");
-    chartBottom.className = "graphite-chart-bottom";
-    $(chartBottom).css({
-      "bottom": "0",
-      "display": "flex",
-      "flex-direction": "row",
-      "flex-align": "end",
-      "position": "relative",
-      "margin-left": "47px"
-    });
-    $(element).append(chartBottom);
-    for (i = 0; i < specs.length; i++) {
-      var labelName = specs[i];
-      var bottomLabel = document.createElement("div");
-      bottomLabel.className = "graphite-chart-bottom-label";
-      bottomLabel.innerHTML = labelName;
-      $(bottomLabel).css({
-        "display": "inline-block",
-        "margin-right": "30px",
-        "text-align": "center",
-        "width": "90px",
-        "margin-bottom": "10px",
-        "top": "0"
-      });
-      $(chartBottom).append(bottomLabel);
-    }
-  };
-  addColumns(data, containerHeight);
+  
+  addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
-  addChartBottom(data);
 };
 
 drawBarChart(userData, 0, example);
