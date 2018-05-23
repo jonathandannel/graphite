@@ -1,13 +1,13 @@
 var userData = {
-  'Io': 3630.6,
-  'Europa': 3121.6,
-  'Ganymede': 5552.4,
-  'Callisto': 4820.6
+  'Io': 1.032,
+  'Europa': 1.45,
+  'Ganymede': 1.044,
+  'Callisto': 2.01
 };
 
 var drawBarChart = function(data, options, element) {
-  var containerHeight = 400;
-  var containerWidth = 1200;
+  var containerHeight = 300;
+  var containerWidth = 900;
   var barColor = '';
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
@@ -66,7 +66,7 @@ var drawBarChart = function(data, options, element) {
         "width": width / values.length + "px",
         "background": "linear-gradient(rgb(189, 168, 193), rgb(206, 192, 209))",
         "text-align": "center",
-        "height": values[i] * (height / maxHeight) + "px",
+        "height": values[i] * (height / maxHeight) + 1 + "px",
         "z-index": "2"
       });
       var columnLabel = document.createElement("div");
@@ -101,6 +101,9 @@ var drawBarChart = function(data, options, element) {
       });
       var separator = document.createElement("hr");
       separator.className = "separator-" + i;
+      $(separator).css({
+        "height": "1px"
+      });
       $(separatorContainer).append(separator);
       $(mainContainer).append(separatorContainer);
     }
