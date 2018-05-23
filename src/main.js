@@ -1,8 +1,8 @@
 var userData = {
-  'White': 38,
-  'Black': 41,
-  'Hispanic': 61,
-  'Islander': 30
+  'Io': 3630.6,
+  'Europa': 3121.6,
+  'Ganymede': 5552.4,
+  'Callisto': 4820.6
 };
 
 var drawBarChart = function(data, options, element) {
@@ -14,6 +14,7 @@ var drawBarChart = function(data, options, element) {
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
+    "padding-top": "10px",
     "margin-top": "75px",
     "margin-left": "10px",
     "height": containerHeight + 'px',
@@ -22,14 +23,14 @@ var drawBarChart = function(data, options, element) {
     "color": "#4c4a4c"
   });
 
-  var title = "Ethnic Identities Among District Schoolteachers";
+  var title = "Densities of Jupiter's moons (g/cm²) ";
   var graphTitle = document.createElement("div");
   graphTitle.innerHTML = "<h1>" + title + "</h1>";
   $(graphTitle).css({
     "font-family": "arial",
     "text-align": "center",
     "font-weight": "400",
-    "color": "#676868",
+    "color": "#4c4a4c",
     "width": containerWidth + 'px'
   });
 
