@@ -10,7 +10,7 @@ var userData = {
 };
 
 var drawBarChart = function(data, options, element) {
-  var containerHeight = 200;
+  var containerHeight = 400;
   var containerWidth = 1200;
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
