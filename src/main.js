@@ -2,16 +2,13 @@ var userData = {
   'White': 38,
   'Black': 41,
   'Hispanic': 61,
-  'Asian': 39,
-  'Indian': 52,
-  'Middle Eastern': 48,
-  'Native': 15,
   'Islander': 30
 };
 
 var drawBarChart = function(data, options, element) {
   var containerHeight = 400;
   var containerWidth = 1200;
+  var barColor = '';
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
     "position": "relative",
@@ -20,9 +17,23 @@ var drawBarChart = function(data, options, element) {
     "margin-top": "75px",
     "margin-left": "10px",
     "height": containerHeight + 'px',
+    "width": containerWidth + 'px',
+    "font-family": "arial",
+    "color": "#4c4a4c"
+  });
+
+  var title = "Ethnic Identities Among District Schoolteachers";
+  var graphTitle = document.createElement("div");
+  graphTitle.innerHTML = "<h1>" + title + "</h1>";
+  $(graphTitle).css({
+    "font-family": "arial",
+    "text-align": "center",
+    "font-weight": "400",
+    "color": "#676868",
     "width": containerWidth + 'px'
   });
 
+  $(element).append(graphTitle);
   $(element).append(mainContainer);
 
   var addColumns = function(dataObject, height, width) {
@@ -43,7 +54,7 @@ var drawBarChart = function(data, options, element) {
       "position": "relative",
       "padding-top": "8px",
       "padding-bottom": "9px",
-      "margin-left": "44px"
+      "margin-left": "50px"
     });
 
     for (i = 0; i < values.length; i++) {
@@ -52,7 +63,7 @@ var drawBarChart = function(data, options, element) {
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
         "width": width / values.length + "px",
-        "background-color": "#68b24a",
+        "background": "linear-gradient(rgb(189, 168, 193), rgb(206, 192, 209))",
         "text-align": "center",
         "height": values[i] * (height / maxHeight) + "px",
         "z-index": "2"
@@ -93,7 +104,7 @@ var drawBarChart = function(data, options, element) {
       $(mainContainer).append(separatorContainer);
     }
     $(".separator-0").css({
-      "border-style": "solid"
+      "border-bottom": "2px"
     });
   };
 
