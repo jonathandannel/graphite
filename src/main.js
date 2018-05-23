@@ -15,7 +15,6 @@ var userOptions = {
   'title': ''
 };
 
-
 var drawBarChart = function(data, options, element) {
   console.log(options.barColor);
   var containerHeight = 400;
@@ -122,7 +121,7 @@ var drawBarChart = function(data, options, element) {
     $(".separator-0").css({
       "border-style": "solid",
       "border-top": "1px",
-      "border-color": "#4c4a4c"
+      "border-color": "#727272"
     });
   };
 
