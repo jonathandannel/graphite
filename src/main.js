@@ -10,14 +10,14 @@ var userData = {
 };
 
 var drawBarChart = function(data, options, element) {
-  var containerHeight = 400;
-  var containerWidth = 900;
+  var containerHeight = 200;
+  var containerWidth = 1200;
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
-    "margin-top": "80px",
+    "margin-top": "75px",
     "margin-left": "10px",
     "height": containerHeight + 'px',
     "width": containerWidth + 'px'
@@ -88,16 +88,15 @@ var drawBarChart = function(data, options, element) {
         "width": "100%"
       });
       var separator = document.createElement("hr");
-      $(separator).css({
-        "border-style": "solid",
-        "border-bottom": "1px",
-        "border-color": "black"
-      });
+      separator.className = "separator-" + i;
       $(separatorContainer).append(separator);
       $(mainContainer).append(separatorContainer);
     }
+    $(".separator-0").css({
+      "border-style": "solid"
+    });
   };
-  
+
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
 };
