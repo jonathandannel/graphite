@@ -139,6 +139,8 @@ function graphite(data, options, element) {
       "border-color": "#727272"
     });
   };
+
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
+  
 }
