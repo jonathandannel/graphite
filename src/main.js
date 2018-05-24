@@ -1,14 +1,16 @@
 var userData = {
-  'one': 4,
-  'two': 4.90,
-  'three': 4.21,
-  'four': 3.55,
-  'five': 4.12,
-  'six': 3.33
+  'One': 400,
+  'Two': 420,
+  'Three': 426,
+  'Four': 355,
+  'Five': 412,
+  'Six': 333
 };
 
 var userOptions = {
-  'height': 300
+  'height': 400,
+  'width': 800,
+  'title': 'Example'
 };
 
 var drawBarChart = function(data, options, element) {
@@ -85,7 +87,7 @@ var drawBarChart = function(data, options, element) {
       "align-items": "flex-end",
       "position": "relative",
       "padding-top": "8px",
-      "padding-bottom": "9px",
+      "padding-bottom": "8px",
       "margin-left": "40px"
     });
 
@@ -99,7 +101,8 @@ var drawBarChart = function(data, options, element) {
         "text-align": "center",
         "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "2",
-        "color": "#383434"
+        "color": "#383434",
+        "font-size": "13px"
       });
       var columnLabel = document.createElement("div");
       columnLabel.innerHTML = Object.keys(dataObject)[i];
@@ -129,7 +132,8 @@ var drawBarChart = function(data, options, element) {
         "position": "absolute",
         "margin-bottom": i * (height / maxHeight) + "px",
         "bottom": "0",
-        "width": "100%"
+        "width": "100%",
+        "font-size": "13px"
       });
       var separator = document.createElement("hr");
       separator.className = "separator-" + i;
