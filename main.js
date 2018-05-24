@@ -6,6 +6,7 @@ var userData = {
   'Five': 512,
   'Six': 333
 };
+
 var userOptions = {
   'height': 400,
   'width': 800,
