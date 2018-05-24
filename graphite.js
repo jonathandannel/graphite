@@ -1,18 +1,4 @@
-var userData = {
-  'One': 280,
-  'Two': 460,
-  'Three': 474,
-  'Four': 355,
-  'Five': 512,
-  'Six': 333
-};
-var userOptions = {
-  'height': 400,
-  'width': 800,
-  'title': 'Example'
-};
-
-var drawBarChart = function(data, options, element) {
+function graphite(data, options, element) {
 
   var handleUserWidth = function(_data, _options) {
     var keyCount = Object.keys(_data).length;
@@ -155,6 +141,4 @@ var drawBarChart = function(data, options, element) {
   };
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
-};
-
-drawBarChart(userData, userOptions, example);
+}
