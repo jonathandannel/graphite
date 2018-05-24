@@ -1,12 +1,11 @@
 var userData = {
-  'One': 400,
-  'Two': 420,
-  'Three': 426,
+  'One': 280,
+  'Two': 460,
+  'Three': 474,
   'Four': 355,
-  'Five': 412,
+  'Five': 512,
   'Six': 333
 };
-
 var userOptions = {
   'height': 400,
   'width': 800,
@@ -70,9 +69,8 @@ var drawBarChart = function(data, options, element) {
   $(element).append(graphTitle);
   $(element).append(mainContainer);
 
-  var addColumns = function(dataObject, height, width) {
-    var values = Object.values(dataObject);
-
+  var addColumns = function(_data, height, width) {
+    var values = Object.values(_data);
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
@@ -105,7 +103,7 @@ var drawBarChart = function(data, options, element) {
         "font-size": "13px"
       });
       var columnLabel = document.createElement("div");
-      columnLabel.innerHTML = Object.keys(dataObject)[i];
+      columnLabel.innerHTML = Object.keys(_data)[i];
       $(columnLabel).css({
         "margin-top": values[i] * (height / maxHeight) - 10 + "px"
       });
@@ -115,9 +113,8 @@ var drawBarChart = function(data, options, element) {
     }
   };
 
-  var addSeparators = function(dataObject, height) {
-    var values = Object.values(dataObject);
-
+  var addSeparators = function(_data, height) {
+    var values = Object.values(_data);
     var maxHeight = 0;
     for (i = 0; i < values.length; i++) {
       if (values[i] > maxHeight) {
