@@ -8,10 +8,14 @@ var userData = {
   'seven': 3.11,
   'eight': 4.21,
   'nine': 4.32,
-  'ten': 2.82
+  'ten': 2.82,
+  'eleven': 5.21,
+  'twelve': 3.33,
+  'thirt': 2.11
 };
 
 var userOptions = {
+  'width': 400,
   'height': 300
 };
 
@@ -19,12 +23,21 @@ var drawBarChart = function(data, options, element) {
 
   var handleUserWidth = function(_data, _options) {
     var keyCount = Object.keys(_data).length;
-    var width = _options.width;
-    var minWidthGuide = [[1, 200], [2, 200], [3, 200], [4, 250], [5, 300], [6, 350],
-    [7, 400], [8, 450], [9, 500], [10, 550]];
     var minWidth;
-    return width;
+    var width = _options.width;
+    if (keyCount <= 3) {
+      minWidth = 200;
+    } else {
+      x = keyCount - 3;
+      minWidth = x * 50 + 200;
+    }
+    if (width < minWidth) {
+      return minWidth;
+    } else {
+      return width;
+    }
   };
+
   var containerHeight = options.height ? options.height : 300;
   var containerWidth = options.width ? handleUserWidth(data, options) : 550;
   var title = options.title ? options.title : '';
