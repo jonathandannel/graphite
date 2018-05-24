@@ -8,7 +8,7 @@ A tiny, minimalist javascript library for generating simple bar graphs.\
 Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file.
 
 ## API
-To create a graph, call `graphite(data, options, element)` in a .js file.
+To create a graph, call `graphite(data, options, element)`.
 
 `graphite` takes 3 parameters: `data`, `options`, and `element`.
 
@@ -33,3 +33,9 @@ To create a graph, call `graphite(data, options, element)` in a .js file.
 ## A work in progress
 
 The purpose of this project is primarily to learn and to become familiar with creating reusable code with javascript. As such, there are probably more than a few unexpected kinks to be worked out.
+
+## To do:
+
+- Make bar color gradients and font sizes customizable.
+- Allow stacked bars.
+- Improve accuracy of automatic width sizing.
