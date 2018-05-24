@@ -5,54 +5,58 @@ var userData = {
   'four': 2.51,
   'five': 2.44,
   'six': 8.3,
-  'seven': 4.02
+  'seven': 4.02,
+  'eight': 5.11,
+  'nine': 4.22,
+  'ten': 2.44,
+  'eleven': 4.4,
+  'twelve': 3.17
 };
 
 var userOptions = {
-  'width': '',
-  'height': '',
-  'barColor': 'surprise',
-  'title': ''
+  'width': 800,
+  'height': 350
 };
 
 var drawBarChart = function(data, options, element) {
-  var containerHeight = 200;
-  var containerWidth = 450;
-  var barColor = '';
-  var title = '';
 
+  var handleUserWidth = function(_options) {
+    return _options.width;
+  };
+
+  var containerHeight = options.height ? options.height : 350;
+  var containerWidth = handleUserWidth(options);
+  var title = options.title ? options.title : '';
+
+  /*//width of 650 can fit 12;
   //width of 600 can fit max 10 columns
+  //width of 550 can fit 10
   //width of 500 can fit max 8 columns
+  //width of 450 can fit 8
   //width of 400 can fit max 6 columns
   //width 350 can fit 6
   //width of 300 can fit max 5 columns
   //width of 250 can fit 4
-  //width of 200 can fit max 2 columns
+  //keyCount == 3, minWidth 200
+  //keyCount == 4, minWidth 200
+  var checkUserWidth = function(dataObject, optionsObject) {
+    var keyCount = Object.keys(dataObject).length;
+    var minWidth;
 
-  var handleUserDimensions = function(dataObject, optionsObject) {
-    var keyCount = Object.keys(dataObject);
-    var width = optionsObject.width;
-    var minWidth = 200;
-    if (keyCount.length) {
-      console.log(null);
+    if (optionsObject.width) {
+      var width = optionsObject.width;
 
+      if (keyCount <= 3) {
+        minWidth = 200;
+      } else if (keyCount <= 4) {
+        minWidth = 250;
+      } else if (keyCount <= 5) {
+        minWidth = 300;
+      } else if (keyCount <= 6) {
+        minWidth = 350;
+      }
     }
-  };
-
-  var setDefaultDimensions = function(dataObject) {
-    var l;
-  };
-
-  var setUserOptions = function(_options) {
-    if (_options.width < 400) {
-      containerWidth = 900;
-    } else if (_options.height < 200) {
-      containerHeight = 400;
-    } else if (options.title.length < 1) {
-      title = "Untitled Graph";
-    }
-  };
-
+  };*/
 
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
@@ -158,7 +162,6 @@ var drawBarChart = function(data, options, element) {
       "border-color": "#727272"
     });
   };
-
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
 };
