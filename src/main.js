@@ -20,12 +20,13 @@ var userOptions = {
 
 var drawBarChart = function(data, options, element) {
 
-  var handleUserWidth = function(_options) {
+  var handleUserWidth = function(_data, _options) {
+    var keyCount = Object.keys(_data).length;
     return _options.width;
   };
 
   var containerHeight = options.height ? options.height : 350;
-  var containerWidth = handleUserWidth(options);
+  var containerWidth = handleUserWidth(data, options);
   var title = options.title ? options.title : '';
 
   /*//width of 650 can fit 12;
@@ -39,24 +40,7 @@ var drawBarChart = function(data, options, element) {
   //width of 250 can fit 4
   //keyCount == 3, minWidth 200
   //keyCount == 4, minWidth 200
-  var checkUserWidth = function(dataObject, optionsObject) {
-    var keyCount = Object.keys(dataObject).length;
-    var minWidth;
-
-    if (optionsObject.width) {
-      var width = optionsObject.width;
-
-      if (keyCount <= 3) {
-        minWidth = 200;
-      } else if (keyCount <= 4) {
-        minWidth = 250;
-      } else if (keyCount <= 5) {
-        minWidth = 300;
-      } else if (keyCount <= 6) {
-        minWidth = 350;
-      }
-    }
-  };*/
+*/
 
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
