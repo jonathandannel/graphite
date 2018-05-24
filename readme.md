@@ -2,9 +2,7 @@
 A tiny, minimalist javascript library for generating simple bar graphs.\
 <sub>(Lighthouse Labs 2018 Prep Stretch Project)</sub>
 
-![alt text](https://cdn.rawgit.com/jonathandannel/graphite/5b05a540/graphite.png)
-
-![alt text](https://cdn.rawgit.com/jonathandannel/graphite/91a3c33f/graphite2.png)
+![alt text](https://i.imgur.com/fcJ15Em.png)
 
 ## Getting Started
 Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file.
