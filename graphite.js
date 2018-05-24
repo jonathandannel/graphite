@@ -86,7 +86,7 @@ function graphite(data, options, element) {
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
         "width": width / values.length + "px",
-        "background": "linear-gradient(rgb(189, 168, 193), rgb(206, 192, 209))",
+        "background": "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))",
         "text-align": "center",
         "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "2",
@@ -142,5 +142,5 @@ function graphite(data, options, element) {
 
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
-  
+
 }
