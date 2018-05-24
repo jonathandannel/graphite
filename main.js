@@ -43,6 +43,7 @@ var drawBarChart = function(data, options, element) {
   var title = options.title ? options.title : '';
 
   var mainContainer = document.createElement("div");
+  mainContainer.className = "graphite-container";
   $(mainContainer).css({
     "position": "relative",
     "display": "flex",
@@ -58,6 +59,7 @@ var drawBarChart = function(data, options, element) {
 
   var graphTitle = document.createElement("div");
   graphTitle.innerHTML = "<h1>" + title + "</h1>";
+  graphTitle.className = "graphite-title";
   $(graphTitle).css({
     "font-family": "arial",
     "text-align": "center",
@@ -80,6 +82,7 @@ var drawBarChart = function(data, options, element) {
     }
 
     var columnContainer = document.createElement("div");
+    columnContainer.className = "graphite-column-container";
     $(columnContainer).css({
       "display": "flex",
       "flex-direction": "row",
@@ -93,6 +96,7 @@ var drawBarChart = function(data, options, element) {
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
       column.innerHTML = '<p>' + values[i];
+      column.className = "graphite-column";
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
         "width": width / values.length + "px",
@@ -105,6 +109,7 @@ var drawBarChart = function(data, options, element) {
       });
       var columnLabel = document.createElement("div");
       columnLabel.innerHTML = Object.keys(_data)[i];
+      columnLabel.className = "graphite-column-label";
       $(columnLabel).css({
         "margin-top": values[i] * (height / maxHeight) - 10 + "px"
       });
@@ -126,6 +131,7 @@ var drawBarChart = function(data, options, element) {
     for (i = 0; i <= maxHeight; i += Math.round(maxHeight / 4)) {
       var separatorContainer = document.createElement("div");
       separatorContainer.innerHTML = i;
+      separatorContainer.className = "graphite-separator-container";
       $(separatorContainer).css({
         "position": "absolute",
         "margin-bottom": i * (height / maxHeight) + "px",
@@ -134,14 +140,14 @@ var drawBarChart = function(data, options, element) {
         "font-size": "13px"
       });
       var separator = document.createElement("hr");
-      separator.className = "separator-" + i;
+      separator.className = "graphite-separator-" + i;
       $(separator).css({
         "border-bottom": "2px"
       });
       $(separatorContainer).append(separator);
       $(mainContainer).append(separatorContainer);
     }
-    $(".separator-0").css({
+    $(".graphite-separator-0").css({
       "border-style": "solid",
       "border-top": "1px",
       "border-color": "#727272"
