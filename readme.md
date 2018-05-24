@@ -4,6 +4,8 @@ A tiny, minimalist javascript library for generating simple bar graphs.\
 
 ![alt text](https://cdn.rawgit.com/jonathandannel/graphite/5b05a540/graphite.png)
 
+![alt text](https://cdn.rawgit.com/jonathandannel/graphite/91a3c33f/graphite2.png)
+
 ## Getting Started
 Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file.
 
