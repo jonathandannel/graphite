@@ -8,6 +8,8 @@ A tiny, minimalist javascript library for generating simple bar graphs.\
 Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file.
 
 ## API
+`graphite(data, options, element)`
+
 `graphite` takes 3 parameters: `data`, `options`, and `element`.
 
 `data` should be passed an object with keys representing x-axis labels and values representing the numerical values of the corresponding bar. For example, `{'baseball': 40, 'football': 48, 'soccer': 39}`.
