@@ -1,46 +1,33 @@
 var userData = {
   'one': 4,
   'two': 4.90,
-  'three': 3.29,
-  'four': 2.51,
-  'five': 2.44,
-  'six': 8.3,
-  'seven': 4.02,
-  'eight': 5.11,
-  'nine': 4.22,
-  'ten': 2.44,
-  'eleven': 4.4,
-  'twelve': 3.17
+  'three': 4.21,
+  'four': 3.55,
+  'five': 4.12,
+  'six': 3.33,
+  'seven': 3.11,
+  'eight': 4.21,
+  'nine': 4.32,
+  'ten': 2.82
 };
 
 var userOptions = {
-  'width': 800,
-  'height': 350
+  'height': 300
 };
 
 var drawBarChart = function(data, options, element) {
 
   var handleUserWidth = function(_data, _options) {
     var keyCount = Object.keys(_data).length;
-    return _options.width;
+    var width = _options.width;
+    var minWidthGuide = [[1, 200], [2, 200], [3, 200], [4, 250], [5, 300], [6, 350],
+    [7, 400], [8, 450], [9, 500], [10, 550]];
+    var minWidth;
+    return width;
   };
-
-  var containerHeight = options.height ? options.height : 350;
-  var containerWidth = handleUserWidth(data, options);
+  var containerHeight = options.height ? options.height : 300;
+  var containerWidth = options.width ? handleUserWidth(data, options) : 550;
   var title = options.title ? options.title : '';
-
-  /*//width of 650 can fit 12;
-  //width of 600 can fit max 10 columns
-  //width of 550 can fit 10
-  //width of 500 can fit max 8 columns
-  //width of 450 can fit 8
-  //width of 400 can fit max 6 columns
-  //width 350 can fit 6
-  //width of 300 can fit max 5 columns
-  //width of 250 can fit 4
-  //keyCount == 3, minWidth 200
-  //keyCount == 4, minWidth 200
-*/
 
   var mainContainer = document.createElement("div");
   $(mainContainer).css({
