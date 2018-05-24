@@ -4,18 +4,10 @@ var userData = {
   'three': 4.21,
   'four': 3.55,
   'five': 4.12,
-  'six': 3.33,
-  'seven': 3.11,
-  'eight': 4.21,
-  'nine': 4.32,
-  'ten': 2.82,
-  'eleven': 5.21,
-  'twelve': 3.33,
-  'thirt': 2.11
+  'six': 3.33
 };
 
 var userOptions = {
-  'width': 400,
   'height': 300
 };
 
@@ -38,8 +30,15 @@ var drawBarChart = function(data, options, element) {
     }
   };
 
+  var getDefaultWidth = function(_data) {
+    var keyCount = Object.keys(_data).length;
+    x = keyCount - 3;
+    var minWidth = x * 50 + 600;
+    return minWidth;
+  };
+
   var containerHeight = options.height ? options.height : 300;
-  var containerWidth = options.width ? handleUserWidth(data, options) : 550;
+  var containerWidth = options.width ? handleUserWidth(data, options) : getDefaultWidth(data);
   var title = options.title ? options.title : '';
 
   var mainContainer = document.createElement("div");
