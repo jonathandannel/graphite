@@ -63,7 +63,8 @@ var drawBarChart = function(data, options, element) {
     "text-align": "center",
     "font-weight": "400",
     "color": "#4c4a4c",
-    "width": containerWidth + 'px'
+    "width": containerWidth + 'px',
+    "font-size": "12px"
   });
 
   $(element).append(graphTitle);
