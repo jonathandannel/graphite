@@ -12,16 +12,11 @@ Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/
 
 `data` should be passed an object with keys representing x-axis labels and values representing the numerical values of the corresponding bar. For example, `{'baseball': 40, 'football': 48, 'soccer': 39}`.
 
-`options` is an optional parameter. Like data, it should be an object. Use `0` for default settings. The available options include:
-
-`width`: The width of the graph container. Note that if you pass in a value that causes the columns to render improperly (as in the case of too many columns for too small of a width), the width will be automatically adjusted to make the bars fit properly.
-
-`height`: Similar to width, but will not be automatically adjusted.
-
-`title`: Adds a title to the top-center of the graph.
-
+`options` is an optional parameter. Like data, it should be an object. Use `0` for default settings. The available options include:/
+`width`: The width of the graph container. Note that if you pass in a value that causes the columns to render improperly (as in the case of too many columns for too small of a width), the width will be automatically adjusted to make the bars fit properly./
+`height`: Similar to width, but will not be automatically adjusted./
+`title`: Adds a title to the top-center of the graph./
 `element`: A string containing the ID of the element that the graph will be rendered to.
-
 
 For example:
 
