@@ -1,6 +1,6 @@
 function graphite(data, options, element) {
 
-  /* Make sure user's width parameter meets minimum requirements to support the amount of bars. */
+  /* Make sure user's width parameter is wide enough to hold the amount of bars. */
   var handleUserWidth = function(_data, _options) {
     var keyCount = Object.keys(_data).length;
     var minWidth;
@@ -98,7 +98,7 @@ function graphite(data, options, element) {
         "background": "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))",
         "text-align": "center",
         "height": values[i] * (height / maxHeight) - 1 + "px",
-        "z-index": "2",
+        "z-index": "1",
         "color": "#383434",
         "font-size": "13px"
       });
