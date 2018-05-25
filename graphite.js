@@ -87,7 +87,7 @@ function graphite(data, options, element) {
       "margin-left": "40px"
     });
 
-    /* Width and length of each column is dependent on dimensions of container */
+    /* Iterate over user's data values to get heights. Scale is dependent on dimensions of container. */
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
       column.innerHTML = '<p>' + values[i];
@@ -150,6 +150,7 @@ function graphite(data, options, element) {
     });
   };
 
+  /* Add columns and horizontal markers to container */
   addColumns(data, containerHeight, containerWidth);
   addSeparators(data, containerHeight);
 
