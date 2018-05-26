@@ -1,13 +1,13 @@
 var userData = {
-  'One': 280,
-  'Two': 460,
-  'Three': 391
+  'One': 80,
+  'Two': 60,
+  'Three': 39,
+  'Four': 100
 };
 
 var userOptions = {
-  'height': 350,
-  'width': 600,
-  'title': 'Example'
+  'height': 400,
+  'width': 1200
 };
 
 graphite(userData, userOptions, example);

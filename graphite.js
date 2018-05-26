@@ -26,10 +26,12 @@ function graphite(data, options, element) {
     return minWidth;
   };
 
-  /* Initialize the dimensions and title of the chart depending on user parameters */
+  /* Initialize the dimensions and chart options depending on presence of user parameters */
   var containerHeight = options.height ? options.height : 300;
   var containerWidth = options.width ? handleUserWidth(data, options) : getDefaultWidth(data);
+  var dimensions = [containerHeight, containerWidth];
   var title = options.title ? options.title : '';
+  var color = options.color ? options.color : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
 
   /* Create a main container to hold graph */
   var mainContainer = document.createElement("div");
@@ -64,8 +66,10 @@ function graphite(data, options, element) {
   $(element).append(mainContainer);
 
   /* Populate columns and x-axis labels */
-  var addColumns = function(_data, height, width) {
+  var addColumns = function(_data, _dimensions, _color) {
     var values = Object.values(_data);
+    var height = _dimensions[0];
+    var width = _dimensions[1];
 
     /* Find the highest value for use in scaling the height */
     var maxHeight = 0;
@@ -95,7 +99,7 @@ function graphite(data, options, element) {
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
         "width": width / values.length + "px",
-        "background": "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))",
+        "background": color,
         "text-align": "center",
         "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "1",
@@ -150,8 +154,7 @@ function graphite(data, options, element) {
     });
   };
 
-  /* Add columns and horizontal markers to container */
-  addColumns(data, containerHeight, containerWidth);
+  addColumns(data, dimensions, color);
   addSeparators(data, containerHeight);
 
 }
