@@ -34,17 +34,24 @@ function graphite(data, options, element) {
   var title = options.title ? options.title : '';
   var barColor = options.barColor ? options.barColor : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
 
-  var handleUserFonts = function (_options) {
-    var labelColor = _options.labelOptions[0];
-    var labelSize = _options.labelOptions[1];
+  var setFont = function(className, styles) {
+    var color = styles[0];
+    var fontSize = styles[1];
+    var target = document.querySelectorAll(className);
+    $(target).css({
+      "color": color,
+      "font-size": fontSize + "px"
+    });
+  };
 
-    var setLabelOptions = function(_labelColor, _labelSize) {
-      var target = document.querySelectorAll(".graphite-column-label");
-      $(target).css({
-        "color": _labelColor,
-        "font-size": _labelSize
-      });
-    };
+  /* User fonts must be passed in as options.fonts.type[option1, option2] */
+  var handleUserFonts = function (_options) {
+    if (_options.labelFont) {
+      var labelStyles = [];
+      labelStyles.push(_options.labelFont[0]);
+      labelStyles.push(_options.labelFont[1]);
+      setFont(".graphite-column-label", labelStyles);
+    }
   };
 
   /* Create a main container to hold graph */
@@ -171,5 +178,6 @@ function graphite(data, options, element) {
 
   addColumns(data, dimensions, barColor);
   addSeparators(data, containerHeight);
+  handleUserFonts(options);
 
 }

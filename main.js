@@ -6,5 +6,12 @@ var userData = {
   'Four': 100
 };
 
+var userOptions = {
+  'height': 400,
+  'width': 900,
+  'barColor': 'orange',
+  'labelFont': ["grey", "24"]
+};
 
-graphite(userData, {'barColor': 'red'}, example);
+
+graphite(userData, userOptions, example);
