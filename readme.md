@@ -22,6 +22,9 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
+- `labelFont`: Styles the x-axis labels. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a number.
+]
+
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
 ## Example Usage
