@@ -20,6 +20,8 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `title`: Adds a title to the top-center of the graph.
 
+- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients are acceptable.
+
 `element`: This should be a string containing the ID of the element that the graph will be rendered to.
 
 ## Example
