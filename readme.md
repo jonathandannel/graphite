@@ -3,7 +3,7 @@ A tiny, minimalist javascript library for generating simple bar graphs.\
 <sub>(Lighthouse Labs 2018 Prep Stretch Project)</sub>
 
 ## Getting Started
-Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file. You'll need [jQuery](https://github.com/jquery/jquery).
+Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file. You'll also need [jQuery](https://github.com/jquery/jquery).
 
 ## API
 To create a graph, call `graphite(data, options, element)`.
@@ -22,7 +22,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
-`element`: The *ID* of the element that the graph will be rendered to. Should *not* be a string.
+`element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
 ## Example Usage
 
@@ -38,6 +38,6 @@ The purpose of this project is primarily to learn and to become familiar with cr
 
 ## To do:
 
-- Make bar color gradients and font sizes customizable.
+- Make font sizes customizable.
 - Allow stacked bars.
 - Improve accuracy of automatic width sizing.
