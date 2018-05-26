@@ -3,7 +3,7 @@ A tiny, minimalist javascript library for generating simple bar graphs.\
 <sub>(Lighthouse Labs 2018 Prep Stretch Project)</sub>
 
 ## Getting Started
-Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file. The only dependency is [jQuery](https://github.com/jquery/jquery).
+Simply add [graphite.js](https://github.com/jonathandannel/graphite/blob/master/graphite.js) to your source directory and include it as a script in your index.html file. You'll need [jQuery](https://github.com/jquery/jquery).
 
 ## API
 To create a graph, call `graphite(data, options, element)`.
@@ -20,7 +20,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `title`: Adds a title to the top-center of the graph.
 
-- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))" }`
+- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
 `element`: This should be a string containing the ID of the element that the graph will be rendered to.
 
