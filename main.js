@@ -10,7 +10,7 @@ var userOptions = {
   'height': 400,
   'width': 900,
   'barColor': 'orange',
-  'labelFont': ["grey", "22"]
+  'labelFont': ["grey", "44"]
 };
 
 
