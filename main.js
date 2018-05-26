@@ -8,7 +8,10 @@ var userData = {
 
 var userOptions = {
   'height': 400,
-  'width': 1200
+  'width': 900,
+  'barColor': 'orange',
+  'labelFont': ["grey", "22"]
 };
+
 
 graphite(userData, userOptions, example);
