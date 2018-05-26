@@ -22,13 +22,15 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
-`element`: This should be a string containing the ID of the element that the graph will be rendered to.
+`element`: The *ID* of the element that the graph will be rendered to. Should *not* be a string.
 
-## Example
+## Example Usage
 
- `graphite({'Io': 571, 'Callisto': 490, 'Ganymede': 522}, {'height': 400, 'width': 900}, 'bargraph');`
+ `graphite({'One': 1, 'Two': 2, 'Three': 3, 'Four': 4}, {'height': 400, 'width': 1200, "title": "Simple Graph"}, myDivId)`
 
- `graphite(dataObj, 0, 'mydiv')`
+ `graphite(dataObject, 0, otherDivId)`
+
+ `graphite({'Baseball': 33, 'Football': 29}, {'color': 'rgb(130, 187, 237)'}, bestDivId)`
 
 ## A work in progress
 
