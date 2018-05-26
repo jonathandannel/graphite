@@ -16,11 +16,11 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `width`: The width of the graph container. Note that if you pass in a value that causes the columns to render improperly (as in the case of too many columns for too small of a width), the width will be automatically adjusted to make the bars fit properly.
 
-- `height`: Similar to width, but will not be automatically adjusted.
+- `height`: Sets the height of the graph container.
 
 - `title`: Adds a title to the top-center of the graph.
 
-- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients are acceptable.
+- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))" }`
 
 `element`: This should be a string containing the ID of the element that the graph will be rendered to.
 
