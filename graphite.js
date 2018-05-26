@@ -1,5 +1,13 @@
 function graphite(data, options, element) {
 
+  /* Calculate what the default container width should be if user does not enter a width */
+  var getDefaultWidth = function(_data) {
+    var keyCount = Object.keys(_data).length;
+    x = keyCount - 3;
+    var minWidth = x * 50 + 600;
+    return minWidth;
+  };
+
   /* Make sure user's width parameter is wide enough to hold the amount of bars. */
   var handleUserWidth = function(_data, _options) {
     var keyCount = Object.keys(_data).length;
@@ -18,20 +26,26 @@ function graphite(data, options, element) {
     }
   };
 
-  /* Calculate what the default width should be if user does not enter a width */
-  var getDefaultWidth = function(_data) {
-    var keyCount = Object.keys(_data).length;
-    x = keyCount - 3;
-    var minWidth = x * 50 + 600;
-    return minWidth;
-  };
-
   /* Initialize the dimensions and chart options depending on presence of user parameters */
-  var containerHeight = options.height ? options.height : 300;
   var containerWidth = options.width ? handleUserWidth(data, options) : getDefaultWidth(data);
+  var containerHeight = options.height ? options.height : 350;
   var dimensions = [containerHeight, containerWidth];
+
   var title = options.title ? options.title : '';
-  var color = options.color ? options.color : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
+  var barColor = options.barColor ? options.barColor : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
+
+  var handleUserFonts = function (_options) {
+    var labelColor = _options.labelOptions[0];
+    var labelSize = _options.labelOptions[1];
+
+    var setLabelOptions = function(_labelColor, _labelSize) {
+      var target = document.querySelectorAll(".graphite-column-label");
+      $(target).css({
+        "color": _labelColor,
+        "font-size": _labelSize
+      });
+    };
+  };
 
   /* Create a main container to hold graph */
   var mainContainer = document.createElement("div");
@@ -66,7 +80,7 @@ function graphite(data, options, element) {
   $(element).append(mainContainer);
 
   /* Populate columns and x-axis labels */
-  var addColumns = function(_data, _dimensions, _color) {
+  var addColumns = function(_data, _dimensions, _barColor) {
     var values = Object.values(_data);
     var height = _dimensions[0];
     var width = _dimensions[1];
@@ -99,7 +113,7 @@ function graphite(data, options, element) {
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
         "width": width / values.length + "px",
-        "background": color,
+        "background": barColor,
         "text-align": "center",
         "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "1",
@@ -110,7 +124,8 @@ function graphite(data, options, element) {
       columnLabel.innerHTML = Object.keys(_data)[i];
       columnLabel.className = "graphite-column-label";
       $(columnLabel).css({
-        "margin-top": values[i] * (height / maxHeight) - 10 + "px"
+        "margin-top": values[i] * (height / maxHeight) - 10 + "px",
+        "font-weight": "bold"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
@@ -154,7 +169,7 @@ function graphite(data, options, element) {
     });
   };
 
-  addColumns(data, dimensions, color);
+  addColumns(data, dimensions, barColor);
   addSeparators(data, containerHeight);
 
 }
