@@ -1,15 +1,16 @@
 
-var userData = {
+var myData = {
   'One': 80,
   'Two': 60,
   'Three': 39,
   'Four': 100
 };
 
-var userOptions = {
+var myOptions = {
   'height': 400,
+  'title': 'test',
   'width': 900
 };
 
 
-graphite(userData, userOptions, example);
+graphite(myData, myOptions, div);

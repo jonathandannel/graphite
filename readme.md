@@ -26,6 +26,8 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `barFont`: Styles the font of the bar value numbers. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a plain number.
 
+- 'titleFont': Same as labelFont and barFont options.
+
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
 ## Example Usage
@@ -36,12 +38,30 @@ To create a graph, call `graphite(data, options, element)`.
 
  `graphite({'Baseball': 33, 'Football': 29}, {'color': 'rgb(130, 187, 237)'}, bestDivId)`
 
+ ```
+ var myData = {
+   'One': 80,
+   'Two': 60,
+   'Three': 39,
+   'Four': 100
+ };
+
+ var myOptions = {
+   'height': 400,
+   'title': 'Example',
+   'width': 900
+ };
+
+ graphite(myData, myOptions, div);
+ ```
+
+
+
 ## A work in progress
 
 The purpose of this project is primarily to learn and to become familiar with creating reusable code with javascript. As such, there are probably more than a few unexpected kinks to be worked out.
 
 ## To do:
 
-- Make font sizes customizable.
 - Allow stacked bars.
-- Improve accuracy of automatic width sizing.
+- Fix unsightly stretching when font sizes are increased.

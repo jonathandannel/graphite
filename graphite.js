@@ -59,6 +59,11 @@ function graphite(data, options, element) {
         barStyles.push(_options.barFont[0]);
         barStyles.push(_options.barFont[1]);
         setFont(".graphite-column", barStyles);
+      } else if (currentOption === 'titleFont') {
+        var titleStyles = [];
+        titleStyles.push(_options.titleFont[0]);
+        titleStyles.push(_options.titleFont[1]);
+        setFont(".graphite-title", titleStyles);
       }
     }
   };
