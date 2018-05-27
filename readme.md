@@ -26,7 +26,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `barFont`: Styles the font of the bar value numbers. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a plain number.
 
-- 'titleFont': Same as labelFont and barFont options.
+- `titleFont`: Same as labelFont and barFont options.
 
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
