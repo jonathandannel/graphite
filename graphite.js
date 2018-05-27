@@ -34,6 +34,7 @@ function graphite(data, options, element) {
   var title = options.title ? options.title : '';
   var barColor = options.barColor ? options.barColor : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
 
+  /* Helper function for setting the font of all elements belonging to a class */
   var setFont = function(className, styles) {
     var color = styles[0];
     var fontSize = styles[1];
@@ -44,13 +45,21 @@ function graphite(data, options, element) {
     });
   };
 
-  /* User fonts must be passed in as options.fonts.type[option1, option2] */
+  /* Apply user defined font sizes and colors from 'options' object, if they exist */
   var handleUserFonts = function (_options) {
-    if (_options.labelFont) {
-      var labelStyles = [];
-      labelStyles.push(_options.labelFont[0]);
-      labelStyles.push(_options.labelFont[1]);
-      setFont(".graphite-column-label", labelStyles);
+    for (i = 0; i < Object.keys(_options).length; i++) {
+      var currentOption = Object.keys(_options)[i];
+      if (currentOption === 'labelFont') {
+        var labelStyles = [];
+        labelStyles.push(_options.labelFont[0]);
+        labelStyles.push(_options.labelFont[1]);
+        setFont(".graphite-column-label", labelStyles);
+      } else if (currentOption === 'barFont') {
+        var barStyles = [];
+        barStyles.push(_options.barFont[0]);
+        barStyles.push(_options.barFont[1]);
+        setFont(".graphite-column", barStyles);
+      }
     }
   };
 
@@ -131,8 +140,7 @@ function graphite(data, options, element) {
       columnLabel.innerHTML = Object.keys(_data)[i];
       columnLabel.className = "graphite-column-label";
       $(columnLabel).css({
-        "margin-top": values[i] * (height / maxHeight) - 10 + "px",
-        "font-weight": "bold"
+        "margin-top": values[i] * (height / maxHeight) - 10 + "px"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
