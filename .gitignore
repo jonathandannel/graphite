@@ -3,3 +3,4 @@ package-lock.json
 package.json
 .eslintrc.js
 .editorconfig
+_config.yml

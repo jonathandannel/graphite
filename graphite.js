@@ -53,6 +53,7 @@ function graphite(data, options, element) {
         var labelStyles = [];
         labelStyles.push(_options.labelFont[0]);
         labelStyles.push(_options.labelFont[1]);
+        //var differential = _options.labelFont[1] - 13;
         setFont(".graphite-column-label", labelStyles);
       } else if (currentOption === 'barFont') {
         var barStyles = [];

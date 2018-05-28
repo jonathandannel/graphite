@@ -8,7 +8,7 @@ var myData = {
 
 var myOptions = {
   'height': 400,
-  'title': 'test',
+  'title': 'Example',
   'width': 900
 };
 
