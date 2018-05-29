@@ -8,7 +8,8 @@ var myData = {
 var myOptions = {
   'height': 300,
   'title': 'Example',
-  'width': 900
+  'width': 900,
+  'fixPadding': 18
 };
 
 graphite(myData, myOptions, example);
