@@ -22,7 +22,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `fixPadding`: Sometimes other CSS rules and frameworks (namely Bootstrap/Foundation) can negatively impact the bottom alignment of columns and separators. This option should be used like so: `{'fixPadding': number}` if needed. Ex: `{'fixPadding': 22}`
 
-- `title`: Adds an <h2> title to the top-center of the graph.
+- `title`: Adds an h2 title to the top-center of the graph.
 
 - `barColor`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
@@ -30,7 +30,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `barFont`: Styles the font of the bar value numbers. Takes an array `['fontColor', 'fontSize', 'fontWeight']`. Font color is a string with a Hex/RGB value and font size is a plain number. Font weight is a string.
 
-- `titleFont`: Same as labelFont and barFont options. Note that since the title is displayed as an <h2> element, some styles may be overriden by any CSS affecting h2 elements.
+- `titleFont`: Same as labelFont and barFont options. Note that since the title is displayed as an h2 element, some styles may be overriden by any CSS affecting header elements.
 
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 

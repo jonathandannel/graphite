@@ -12,5 +12,13 @@ code {
 
 #example2 {
   margin: auto;
-  width: 75%;
+  width: 80%;
+}
+
+.display-3 {
+  padding-bottom: 6px;
+  
+}
+.lead {
+  padding: 6px;
 }
