@@ -1,4 +1,16 @@
 #main-header {
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 40px;
+}
+
+#example1 {
+  margin-top: 30px;
+}
+
+.code-block {
+  display: inline-block;
+}
+
+.container {
+  margin-bottom: 68px;
 }

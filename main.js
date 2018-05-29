@@ -1,8 +1,6 @@
 var exampleData = {
   'Indian': 55,
   'Hispanic': 101,
-  'Black': 68,
-  'White': 78,
   'Middle-Eastern': 71,
   'Asian': 80,
   'Native': 26,
@@ -14,7 +12,8 @@ var exampleOptions = {
   'title': 'Poll Results',
   'width': 1000,
   'fixPadding': 18,
-  'barFont': [0, 12, "bold"]
+  'barFont': [0, 12, "bold"],
+  'labelFont': [0, 13, 0]
 };
 
 graphite(exampleData, exampleOptions, example1);

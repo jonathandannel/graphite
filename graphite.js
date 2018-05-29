@@ -91,7 +91,7 @@ function graphite(data, options, element) {
   });
 
   var graphTitle = document.createElement("div");
-  graphTitle.innerHTML = "<h1>" + title + "</h1>";
+  graphTitle.innerHTML = '<h2>' + title + '</h2>';
   graphTitle.className = "graphite-title";
   $(graphTitle).css({
     "text-align": "center",
@@ -200,7 +200,6 @@ function graphite(data, options, element) {
 
   addSeparators(data, containerHeight);
   addColumns(data, dimensions, barColor);
-
   handleUserFonts(options);
 
 }
