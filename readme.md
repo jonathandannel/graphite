@@ -28,7 +28,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `titleFont`: Same as labelFont and barFont options.
 
--`fixPadding`: Sometimes other CSS rules and frameworks can negatively impact the alignment of columns and separators. This option should be used like so: `{'fixPadding': true}` if needed.
+-`fixPadding`: Sometimes other CSS rules and frameworks (namely Bootstrap/Foundation) can negatively impact the alignment of columns and separators. This option should be used like so: `{'fixPadding': true}` if needed.
 
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
@@ -51,7 +51,8 @@ To create a graph, call `graphite(data, options, element)`.
  var myOptions = {
    'height': 400,
    'title': 'Example',
-   'width': 900
+   'width': 900,
+   'fixPadding': true
  };
 
  graphite(myData, myOptions, div);
