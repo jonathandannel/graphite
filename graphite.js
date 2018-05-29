@@ -33,6 +33,8 @@ function graphite(data, options, element) {
 
   var title = options.title ? options.title : '';
   var barColor = options.barColor ? options.barColor : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
+
+  /* Changes the padding-bottom of main container to fix issues with vertical alignment with some CSS rules/frameworks */
   var fixPadding = options.fixPadding ? options.fixPadding : 8;
 
   /* Helper function for setting the font of all elements belonging to a class */
