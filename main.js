@@ -17,3 +17,21 @@ var exampleOptions = {
 };
 
 graphite(exampleData, exampleOptions, example1);
+
+
+var exampleDataB = {
+  'Io': 3660,
+  'Callisto': 4820,
+  'Europa': 3122,
+  'Ganymede': 5268
+};
+
+var exampleOptionsB = {
+  'height': 400,
+  'width': 800,
+  'title': 'Diameter of Jovian moons (km)',
+  'barColor': "#bfb9e8",
+  'fixPadding': 18
+};
+
+graphite(exampleDataB, exampleOptionsB, example2);

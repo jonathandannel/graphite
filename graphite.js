@@ -128,7 +128,7 @@ function graphite(data, options, element) {
       "position": "relative",
       "padding-top": "8px",
       "padding-bottom": fixPadding + "px",
-      "margin-left": "40px"
+      "margin-left": "48px"
     });
 
     /* Iterate over user's data values to get heights. Scale is dependent on dimensions of container. */

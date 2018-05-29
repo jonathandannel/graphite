@@ -22,7 +22,7 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `title`: Adds an <h2> title to the top-center of the graph.
 
-- `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
+- `barColor`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
 - `labelFont`: Styles the font of x-axis labels. Takes an array `['fontcolor', 'fontsize', fontWeight]`. Font color is a string with a Hex/RGB value and font size is a plain number. Font weight is a string (i.e. "400" or "bold").
 
@@ -38,7 +38,7 @@ To create a graph, call `graphite(data, options, element)`.
 
  `graphite(dataObject, 0, otherDivId)`
 
- `graphite({'Baseball': 33, 'Football': 29}, {'color': 'rgb(130, 187, 237)'}, bestDivId)`
+ `graphite({'Baseball': 33, 'Football': 29}, {'barColor': 'rgb(130, 187, 237)'}, bestDivId)`
 
  *index.html*
  ```
@@ -77,4 +77,4 @@ The purpose of this project is primarily to learn and to become familiar with cr
 ## To do:
 
 - Allow stacked bars.
-- Fix unsightly stretching when font sizes are increased.
+- Allow individual bar colors.
