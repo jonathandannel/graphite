@@ -18,6 +18,8 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `height`: Sets the height of the graph container.
 
+- `fixPadding`: Sometimes other CSS rules and frameworks (namely Bootstrap/Foundation) can negatively impact the bottom alignment of columns and separators. This option should be used like so: `{'fixPadding': number}` if needed. Ex: `{'fixPadding': 22}`
+
 - `title`: Adds a title to the top-center of the graph.
 
 - `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
@@ -27,8 +29,6 @@ To create a graph, call `graphite(data, options, element)`.
 - `barFont`: Styles the font of the bar value numbers. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a plain number.
 
 - `titleFont`: Same as labelFont and barFont options.
-
--`fixPadding`: Sometimes other CSS rules and frameworks (namely Bootstrap/Foundation) can negatively impact the alignment of columns and separators. This option should be used like so: `{'fixPadding': true}` if needed.
 
 `element`: The <b>ID</b> of the element that the graph will be rendered to. Should *not* be a string.
 
@@ -40,6 +40,13 @@ To create a graph, call `graphite(data, options, element)`.
 
  `graphite({'Baseball': 33, 'Football': 29}, {'color': 'rgb(130, 187, 237)'}, bestDivId)`
 
+ *index.html*
+ ```
+ <body>
+  <div id="div"></div>
+ </body>
+ ```
+ *main.js*
  ```
  var myData = {
    'One': 80,
@@ -52,13 +59,11 @@ To create a graph, call `graphite(data, options, element)`.
    'height': 400,
    'title': 'Example',
    'width': 900,
-   'fixPadding': true
+   'fixPadding': 22
  };
 
  graphite(myData, myOptions, div);
  ```
-
-
 
 ## A work in progress
 
