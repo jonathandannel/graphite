@@ -1,16 +1,14 @@
-
 var myData = {
-  'One': 80,
-  'Two': 60,
-  'Three': 39,
-  'Four': 100
+  'One': 840,
+  'Two': 260,
+  'Three': 396,
+  'Four': 1020
 };
 
 var myOptions = {
-  'height': 400,
+  'height': 300,
   'title': 'Example',
   'width': 900
 };
-
 
 graphite(myData, myOptions, div);

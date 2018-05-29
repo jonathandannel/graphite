@@ -76,7 +76,7 @@ function graphite(data, options, element) {
     "position": "relative",
     "display": "flex",
     "flex-direction": "column-reverse",
-    "margin-top": "75px",
+    "margin-top": "50px",
     "margin-left": "10px",
     "height": containerHeight + 'px',
     "width": containerWidth + 'px',
@@ -146,7 +146,9 @@ function graphite(data, options, element) {
       columnLabel.innerHTML = Object.keys(_data)[i];
       columnLabel.className = "graphite-column-label";
       $(columnLabel).css({
-        "margin-top": values[i] * (height / maxHeight) - 10 + "px"
+        "margin-top": values[i] * (height / maxHeight) - 10 + "px",
+        "color": "#383434",
+        "font-size": "13px"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
