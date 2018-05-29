@@ -13,7 +13,8 @@ var exampleOptions = {
   'height': 350,
   'title': 'Poll Results',
   'width': 1000,
-  'fixPadding': 18
+  'fixPadding': 18,
+  'barFont': [0, 12, "bold"]
 };
 
 graphite(exampleData, exampleOptions, example1);

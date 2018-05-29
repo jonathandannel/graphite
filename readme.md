@@ -24,9 +24,9 @@ To create a graph, call `graphite(data, options, element)`.
 
 - `color`: Changes the bar color. Use a string with a Hex or RGB value. Linear gradients can be used, too. Ex: `{'color': '#884dff'}` `{'color': "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))"}`
 
-- `labelFont`: Styles the font of x-axis labels. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a plain number.
+- `labelFont`: Styles the font of x-axis labels. Takes an array `['fontcolor', 'fontsize', fontWeight]`. Font color is a string with a Hex/RGB value and font size is a plain number. Font weight is a string (i.e. "400" or "bold").
 
-- `barFont`: Styles the font of the bar value numbers. Takes an array `['fontcolor', 'fontsize']`. Font color is a string with a Hex/RGB value and font size is a plain number.
+- `barFont`: Styles the font of the bar value numbers. Takes an array `['fontColor', 'fontSize', 'fontWeight']`. Font color is a string with a Hex/RGB value and font size is a plain number. Font weight is a string.
 
 - `titleFont`: Same as labelFont and barFont options.
 
@@ -48,7 +48,7 @@ To create a graph, call `graphite(data, options, element)`.
  ```
  *main.js*
  ```
-  var exampleData = {
+ var exampleData = {
    'Indian': 55,
    'Hispanic': 101,
    'Black': 68,
@@ -60,13 +60,14 @@ To create a graph, call `graphite(data, options, element)`.
  };
 
  var exampleOptions = {
-   'height': 400,
+   'height': 350,
    'title': 'Poll Results',
-   'width': 900,
-   'fixPadding': 18
+   'width': 1000,
+   'fixPadding': 18,
+   'barFont': [0, 12, "bold"]
  };
 
- graphite(exampleData, exampleOptions, example2);
+ graphite(exampleData, exampleOptions, example1);
  ```
 
 ## A work in progress

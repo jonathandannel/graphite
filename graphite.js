@@ -41,10 +41,12 @@ function graphite(data, options, element) {
   var setFont = function(className, styles) {
     var color = styles[0];
     var fontSize = styles[1];
+    var fontWeight = styles[2];
     var target = document.querySelectorAll(className);
     $(target).css({
       "color": color,
-      "font-size": fontSize + "px"
+      "font-size": fontSize + "px",
+      "font-weight": fontWeight
     });
   };
 
@@ -56,12 +58,13 @@ function graphite(data, options, element) {
         var labelStyles = [];
         labelStyles.push(_options.labelFont[0]);
         labelStyles.push(_options.labelFont[1]);
-        //var differential = _options.labelFont[1] - 13;
+        labelStyles.push(_options.labelFont[2]);
         setFont(".graphite-column-label", labelStyles);
       } else if (currentOption === 'barFont') {
         var barStyles = [];
         barStyles.push(_options.barFont[0]);
         barStyles.push(_options.barFont[1]);
+        barStyles.push(_options.barFont[2]);
         setFont(".graphite-column", barStyles);
       } else if (currentOption === 'titleFont') {
         var titleStyles = [];
@@ -141,7 +144,8 @@ function graphite(data, options, element) {
         "height": values[i] * (height / maxHeight) - 1 + "px",
         "z-index": "1",
         "color": "#383434",
-        "font-size": "13px"
+        "font-size": "13px",
+        "font-weight": "400"
       });
       var columnLabel = document.createElement("div");
       columnLabel.innerHTML = Object.keys(_data)[i];
@@ -149,7 +153,8 @@ function graphite(data, options, element) {
       $(columnLabel).css({
         "margin-top": values[i] * (height / maxHeight) - 10 + "px",
         "color": "#383434",
-        "font-size": "13px"
+        "font-size": "13px",
+        "font-weight": "400"
       });
       $(mainContainer).append(columnContainer);
       $(columnContainer).append(column);
