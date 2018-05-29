@@ -33,6 +33,7 @@ function graphite(data, options, element) {
 
   var title = options.title ? options.title : '';
   var barColor = options.barColor ? options.barColor : "linear-gradient(rgb(144, 164, 237), rgb(122, 139, 204))";
+  var fixPadding = options.fixPadding === true ? 22 : 8;
 
   /* Helper function for setting the font of all elements belonging to a class */
   var setFont = function(className, styles) {
@@ -123,14 +124,14 @@ function graphite(data, options, element) {
       "align-items": "flex-end",
       "position": "relative",
       "padding-top": "8px",
-      "padding-bottom": "8px",
+      "padding-bottom": fixPadding + "px",
       "margin-left": "40px"
     });
 
     /* Iterate over user's data values to get heights. Scale is dependent on dimensions of container. */
     for (i = 0; i < values.length; i++) {
       var column = document.createElement("div");
-      column.innerHTML = '<p>' + values[i];
+      column.innerHTML = '<p><br>' + values[i];
       column.className = "graphite-column";
       $(column).css({
         "margin-right": (width / values.length) / 6 + "px",
@@ -192,8 +193,9 @@ function graphite(data, options, element) {
     });
   };
 
-  addColumns(data, dimensions, barColor);
   addSeparators(data, containerHeight);
+  addColumns(data, dimensions, barColor);
+
   handleUserFonts(options);
 
 }
