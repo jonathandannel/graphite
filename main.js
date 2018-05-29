@@ -1,15 +1,19 @@
-var myData = {
-  'One': 840,
-  'Two': 260,
-  'Three': 396,
-  'Four': 1020
+var exampleData = {
+  'Indian': 55,
+  'Hispanic': 101,
+  'Black': 68,
+  'White': 78,
+  'Middle-Eastern': 71,
+  'Asian': 80,
+  'Native': 26,
+  'Other': 39
 };
 
-var myOptions = {
-  'height': 300,
-  'title': 'Example',
-  'width': 900,
+var exampleOptions = {
+  'height': 350,
+  'title': 'Poll Results',
+  'width': 1000,
   'fixPadding': 18
 };
 
-graphite(myData, myOptions, example);
+graphite(exampleData, exampleOptions, example1);

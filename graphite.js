@@ -83,7 +83,6 @@ function graphite(data, options, element) {
     "margin-left": "10px",
     "height": containerHeight + 'px',
     "width": containerWidth + 'px',
-    "font-family": "arial",
     "font-size": "14px",
     "color": "#4c4a4c"
   });
@@ -92,7 +91,6 @@ function graphite(data, options, element) {
   graphTitle.innerHTML = "<h1>" + title + "</h1>";
   graphTitle.className = "graphite-title";
   $(graphTitle).css({
-    "font-family": "arial",
     "text-align": "center",
     "font-weight": "400",
     "color": "#4c4a4c",

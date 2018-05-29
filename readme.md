@@ -48,21 +48,25 @@ To create a graph, call `graphite(data, options, element)`.
  ```
  *main.js*
  ```
- var myData = {
-   'One': 80,
-   'Two': 60,
-   'Three': 39,
-   'Four': 100
+  var exampleData = {
+   'Indian': 55,
+   'Hispanic': 101,
+   'Black': 68,
+   'White': 78,
+   'Middle-Eastern': 71,
+   'Asian': 80,
+   'Native': 26,
+   'Other': 39
  };
 
- var myOptions = {
+ var exampleOptions = {
    'height': 400,
-   'title': 'Example',
+   'title': 'Poll Results',
    'width': 900,
-   'fixPadding': 22
+   'fixPadding': 18
  };
 
- graphite(myData, myOptions, div);
+ graphite(exampleData, exampleOptions, example2);
  ```
 
 ## A work in progress
