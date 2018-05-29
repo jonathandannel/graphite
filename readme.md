@@ -82,7 +82,7 @@ The purpose of this project is primarily to learn and to become familiar with cr
 - Allow individual bar colors.
 
 ## Resources
-jQuery Official Documentation
-w3schools CSS Tutorial
-Bootstrap boilerplate from https://bootswatch.com
-Eloquent Javascript
+- jQuery Official Documentation
+- Eloquent Javascript
+- w3schools CSS Tutorial
+- Bootstrap boilerplate from https://bootswatch.com
