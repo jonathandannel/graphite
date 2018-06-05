@@ -45,7 +45,7 @@ To create a graph, call `graphite(data, options, element)`.
  *index.html*
  ```
  <body>
-  <div id="div"></div>
+  <div id="example1"></div>
  </body>
  ```
  *main.js*
