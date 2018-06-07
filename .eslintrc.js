@@ -1,3 +1,3 @@
-{
-  "extends": "eslint-config-lighthouselabs"
-}
+module.exports = {
+    "extends": "eslint-config-lighthouselabs"
+};
